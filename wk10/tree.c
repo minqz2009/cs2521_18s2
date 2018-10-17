@@ -63,7 +63,7 @@ BSTree insertR(BSTree t, int v) {
 int BSTreeFind(BSTree t, int v) {
     if (t == NULL) return 0;
     if (t->value == v) return 1;
-    if (v < t->value) return BSTreeFind(t->left, v);
+    if (v < t->value) return BSTreeFind(t->left, v);            Should return 0 at the end, or it wont complie
     if (v > t->value) return BSTreeFind(t->right, v);
 }
 
@@ -71,7 +71,7 @@ int BSTreeFind(BSTree t, int v) {
 // (number of edges on longest path from root to a leaf)
 int BSTreeMaxBranchLen(BSTree t) {
     if (t == NULL) return 0;
-    if (t->left == NULLL && t->right == NULL) return 0;
+    if (t->left == NULLL && t->right == NULL) return 0;          // Should be NULL 
     int l = BSTreeMaxBranchLen(t->left);
     int r = BSTreeMaxBranchLen(t->right);
     return 1 + (l > r ? l : r);
